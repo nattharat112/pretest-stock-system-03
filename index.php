@@ -10,16 +10,17 @@
 </head>
 
 <body>
+    <?php session_start(); if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') { header('Location: login.php'); exit; } ?>
     <div class="container">
         <header>
             <div>
                 <h1>Salapao PC Stock</h1>
                 <p style="color: var(--text-muted)">Manage components and inventory</p>
             </div>
-            <button class="btn btn-primary" onclick="openModal('productModal')">Add New Product</button>
-        </header>
-
-        <div id="loading" style="text-align: center; padding: 2rem;">Loading inventory...</div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <button class="btn btn-primary" onclick="openModal('productModal')">Add New Product</button>
+                <button class="btn btn-outline" onclick="location.href='logout.php'">Logout</button>
+            </div>
 
         <div id="productGrid" class="product-grid">
             <!-- Products will be loaded here -->
