@@ -1,3 +1,4 @@
+ <?php session_start(); if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') { header('Location: login.php'); exit; } ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,6 @@
 </head>
 
 <body>
-    <?php session_start(); if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') { header('Location: login.php'); exit; } ?>
     <div class="container">
         <header>
             <div>
